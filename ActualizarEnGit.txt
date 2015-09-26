@@ -1,0 +1,6 @@
+Comandos
+git init
+- git add setup.py
+- git commit -m "algo"
+- git push
+
