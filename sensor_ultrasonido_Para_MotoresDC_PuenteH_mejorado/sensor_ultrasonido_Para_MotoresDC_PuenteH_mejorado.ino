@@ -18,8 +18,8 @@
 
 int maximumRange = 1000; // Maximum range needed
 int minimumRange = 0; // Minimum range needed
-long duration, distance; // Duration used to calculate distance
-
+float duration; // Duration used to calculate distance
+float distance;
 int IN2 = 11;
 int IN1 =12;
 int IN3 = 10; 
@@ -59,9 +59,12 @@ void loop() {
  if (distance >= maximumRange || distance <= minimumRange){
  /* Send a negative number to computer and Turn LED ON 
  to indicate "out of range" */
+ 
  Serial.println("-1");
+ Serial.println(distance);
  digitalWrite(LEDPin, HIGH); 
- Serial.begin(9600);
+ //Serial.println("off");
+ //Serial.begin (9600);
  
  
   // Motor gira en un sentido
@@ -73,23 +76,36 @@ void loop() {
  else {
  /* Send the distance to the computer using Serial protocol, and
  turn LED OFF to indicate successful reading. */
+ 
  Serial.println(distance);
  digitalWrite(LEDPin, LOW);
   if(distance >= 20) {
-   // Motor gira en un sentido
+
+       // Motor gira en un sentido contrario
+  digitalWrite (IN4, LOW);
+  digitalWrite (IN3, HIGH); 
+  digitalWrite (IN2, LOW);
+  digitalWrite (IN1, HIGH);
+  
+  digitalWrite(LEDPin, HIGH);
+  }
+  else
+  /*
+  // Motor no gira
+  digitalWrite (IN4, LOW);
+  digitalWrite (IN2, LOW); 
+  delay(5000);*/
+  
+
+  
+  
+     // Motor gira en un sentido
   digitalWrite (IN4, HIGH);
   digitalWrite (IN3, LOW); 
   digitalWrite (IN2, HIGH);
   digitalWrite (IN1, LOW);
   
   
-  digitalWrite(LEDPin, HIGH);
-  }
-  else
-  
-  // Motor no gira
-  digitalWrite (IN4, LOW);
-  digitalWrite (IN2, LOW); 
  
   
  }
