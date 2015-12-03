@@ -12,18 +12,18 @@
  */
 
 
-#define echoPin 5 // Echo Pin
-#define trigPin 4 // Trigger Pin
-#define LEDPin 7 // Onboard LED
+#define echoPin 3 // Echo Pin
+#define trigPin 2 // Trigger Pin
+#define LEDPin 10 // Onboard LED
 
 int maximumRange = 1000; // Maximum range needed
 int minimumRange = 0; // Minimum range needed
 float duration; // Duration used to calculate distance
 float distance;
-int IN2 = 11;
-int IN1 =12;
-int IN3 = 10; 
-int IN4 = 9;
+int IN2 = 7;
+int IN1 = 6;
+int IN3 = 5; 
+int IN4 = 4;
 
 
 void setup() {
@@ -66,12 +66,12 @@ void loop() {
  //Serial.println("off");
  //Serial.begin (9600);
  
- 
+ /*
   // Motor gira en un sentido
   digitalWrite (IN4, HIGH);
   digitalWrite (IN3, LOW); 
   digitalWrite (IN2, HIGH);
-  digitalWrite (IN1, LOW);
+  digitalWrite (IN1, LOW);*/
  }
  else {
  /* Send the distance to the computer using Serial protocol, and
@@ -90,21 +90,24 @@ void loop() {
   digitalWrite(LEDPin, HIGH);
   }
   else
+  {
   /*
   // Motor no gira
   digitalWrite (IN4, LOW);
-  digitalWrite (IN2, LOW); 
-  delay(5000);*/
+  digitalWrite (IN2, LOW); */
+  
   
 
   
   
-     // Motor gira en un sentido
+    // Motor gira en un sentido
   digitalWrite (IN4, HIGH);
   digitalWrite (IN3, LOW); 
-  digitalWrite (IN2, HIGH);
-  digitalWrite (IN1, LOW);
+  digitalWrite (IN2, LOW);
+  digitalWrite (IN1, LOW); 
+  delay(2000);
   
+  }
   
  
   
