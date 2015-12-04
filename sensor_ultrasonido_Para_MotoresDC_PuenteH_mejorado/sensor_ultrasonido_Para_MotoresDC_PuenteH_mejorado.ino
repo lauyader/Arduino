@@ -9,12 +9,15 @@
  Has been modified by Winkle ink here: http://winkleink.blogspot.com.au/2012/05/arduino-hc-sr04-ultrasonic-distance.html
  And modified further by ScottC here: http://arduinobasics.blogspot.com.au/2012/11/arduinobasics-hc-sr04-ultrasonic-sensor.html
  on 10 Nov 2012.
+ 
+ Adaptado para arduino Nano:  Luis Américo Auyadermont Muñoz
+ se le agrego un control de Puente H para controlar dos motores,
  */
 
 
 #define echoPin 3 // Echo Pin
 #define trigPin 2 // Trigger Pin
-#define LEDPin 10 // Onboard LED
+#define LEDPin 13 // Onboard LED
 
 int maximumRange = 1000; // Maximum range needed
 int minimumRange = 0; // Minimum range needed
@@ -24,7 +27,7 @@ int IN2 = 7;
 int IN1 = 6;
 int IN3 = 5; 
 int IN4 = 4;
-
+ 
 
 void setup() {
  Serial.begin (9600);
@@ -34,11 +37,13 @@ void setup() {
  
  
    // Activacion de los pines de los motores
-  pinMode (IN4, OUTPUT);    // Input4 conectada al pin 9 
-  pinMode (IN3, OUTPUT);    // Input3 conectada al pin 10
-  pinMode (IN2, OUTPUT);    // Input2 conectada al pin 11
-  pinMode (IN1, OUTPUT);    // Input1 conectada al pin 12 
+  pinMode (IN4, OUTPUT);    // Input4 conectada al pin 4 
+  pinMode (IN3, OUTPUT);    // Input3 conectada al pin 5
+  pinMode (IN2, OUTPUT);    // Input2 conectada al pin 6
+  pinMode (IN1, OUTPUT);    // Input1 conectada al pin 7 
   
+  
+ 
 }
 
 void loop() {
@@ -66,6 +71,7 @@ void loop() {
  //Serial.println("off");
  //Serial.begin (9600);
  
+ 
  /*
   // Motor gira en un sentido
   digitalWrite (IN4, HIGH);
@@ -79,8 +85,8 @@ void loop() {
  
  Serial.println(distance);
  digitalWrite(LEDPin, LOW);
-  if(distance >= 20) {
-
+  if(distance >= 10) {
+       
        // Motor gira en un sentido contrario
   digitalWrite (IN4, LOW);
   digitalWrite (IN3, HIGH); 
@@ -101,11 +107,14 @@ void loop() {
   
   
     // Motor gira en un sentido
+
+ 
+  
   digitalWrite (IN4, HIGH);
   digitalWrite (IN3, LOW); 
-  digitalWrite (IN2, LOW);
-  digitalWrite (IN1, LOW); 
-  delay(2000);
+  digitalWrite (IN2, HIGH);
+  digitalWrite (IN1, LOW);
+  
   
   }
   
