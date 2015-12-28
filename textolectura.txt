@@ -1,0 +1,1 @@
+ mejorando. Para ser una voz de mujer puede que suene demasiado grave, queremos que suene más aguda. Para cambiar el tono usaremos la opción -p. El valor, por defecto, es 50. Vamos a subirlo.

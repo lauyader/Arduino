@@ -1,0 +1,1 @@
+Saludos amigos y amigas, acabo de recuperar un vehiculo de control remoto y le agregue un puente H, una placa  Arduino modelo uno y un sensor de ultrasonido. El objetivo  es  de crear un carro autónomo que sea capaz de tomar sus propias decisiones. Estamos en la primera etapa de cuatro, que es armar el  vehículo. Gracias. 
