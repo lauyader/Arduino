@@ -67,21 +67,17 @@ void loop()
     digitalWrite(led,HIGH); // When the Red condition is met, the Green LED should turn off
 
   digitalWrite(led2,LOW);
-  
-    // Motor gira en un sentido hacia adelante Rueda de Empuje traseras
+        // Motor retrocede
   digitalWrite (IN4, HIGH);
   digitalWrite (IN3, LOW);
   
   
-  // Cruce de la ruedas para la izquierda
+  //Cruzan las ruedas delanteras
   digitalWrite (IN2, HIGH);
   digitalWrite (IN1, LOW);
   
-  delay(1500);
   
-  //Cruce de las Ruedas para la derecha
-  digitalWrite (IN2, LOW);
-  digitalWrite (IN1, HIGH);
+  
   
   
 
@@ -90,16 +86,33 @@ void loop()
   else {
 
     digitalWrite(led,LOW);
+
     digitalWrite(led2,HIGH);
     //digitalWrite(Pin, LOW);
     
-  // Motor gira en un sentido hacia adelante Rueda de Empuje traseras
-  digitalWrite (IN4, LOW);
-  digitalWrite (IN3, HIGH);
+      // Motor gira en un sentido hacia adelante Rueda de Empuje traseras
+      digitalWrite (IN4, LOW);
+      digitalWrite (IN3, HIGH); 
+      
+        //Cruzan las ruedas delanteras
+        
+        digitalWrite (IN2, HIGH);
+        digitalWrite (IN1, LOW);
+        
+        delay(500);
+        
+        digitalWrite (IN2, LOW);
+        digitalWrite (IN1, HIGH);
+        if (IN2 == HIGH){
+           Serial.println("Hola Mundo");
+        
+        
+        }
+            
   
   
-    
-    
+  
+  
   }
 
   if (distance >= 200 || distance <= 0){
@@ -107,7 +120,12 @@ void loop()
     Serial.println("Out of range");
     digitalWrite(trigPin, LOW);
     
- 
+    //digitalWrite(Pin, HIGH);
+    //pinMode(reset, OUTPUT);
+    //Serial.begin(9600);
+    //Serial.println("Reset");
+    //delay(200);
+    
 
   }
 
